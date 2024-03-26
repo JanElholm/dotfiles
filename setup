@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# This is the setup script for my config. The idea is to be able to run
+# this after cloning the repo on a Mac or Ubuntu (WSL) system and be up
+# and running very quickly.
+
+# create directories
+export XDG_CONFIG_HOME="$HOME"/.config
+
+
+# Symbolic links
+
+ln -sf "$PWD/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml
+ln -sf "$PWD/.bash_profile" "$HOME"/.bash_profile
+ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
+ln -sf "$PWD/.inputrc" "$HOME"/.inputrc
+ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
+ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
+
+# export SECOND_BRAIN=("/Users/mischa/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain-01-07-23")
+# export SECOND_BRAIN=("/Users/mischa/Library/Mobile Documents/iCloud~md~obsidian/Documents/The Garden")
+# ln -sf "$SECOND_BRAIN" ~/garden
+#
+# iCloud
+# export ICLOUD=("/Users/mischa/Library/Mobile Documents/com~apple~CloudDocs")
+# ln -sf "$ICLOUD" ~/icloud
+
+# Packages
+
+# install brew
+
+
+# brew packages Mac
+# amethyst fzf nvim exa hugo bash-completion@2 newsboat kubectl starship
+
+# ubuntu packages apt
+
+# ubuntu apt neovim setup
+
+# ubuntu brew for vim and neovim setup
+
+# ubuntu brew for neovim setup
+
+# ubuntu specific notes
+# create symbolic link to neovim from vim when not using neovim on
+# Ubuntu systems, because I use the v alias everywhere.
+# sudo ln -sf /usr/bin/vim /usr/bin/nvim
