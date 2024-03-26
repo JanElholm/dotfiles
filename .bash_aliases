@@ -5,6 +5,8 @@ else
 fi
 alias ll="l -a"
 
+alias tree='tree -I ".git|node_modules"'
+
 alias cd1="cd .."
 alias cd2="cd ../../"
 alias cd3="cd ../../../"
