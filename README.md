@@ -29,3 +29,15 @@
 • Brew install icdiff
 • Background music
 • VSCode
+
+## List of packages to install with Homebrew
+
+brew list
+
+==> Formulae
+
+bash gettext icdiff openssl@3 python@3.12 sqlite tree ca-certificates git mpdecimal pcre2 readline stow xz
+
+==> Casks
+
+1password git-credential-manager powershell steam discord google-chrome rectangle visual-studio-code
