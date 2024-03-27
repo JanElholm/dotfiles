@@ -23,7 +23,6 @@
 • 1Password
 • Rectangle
 • Git credential manager via homebrew
-• https://github.com/git-ecosystem/git-credential-manager
 • VS Code via homebrew
 • Bash dotfiles
 • Brew install icdiff
