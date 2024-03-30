@@ -4,6 +4,8 @@ else
   alias l="ls -cl -hp --time-style=long-iso --group-directories-first --color=always"
 fi
 alias ll="l -a"
+alias fmp="cd ~/FMP"
+alias dot="cd ~/dotfiles"
 
 alias tree='tree -I ".git|node_modules"'
 
