@@ -11,6 +11,8 @@ alias v=nvim
 
 alias ll="l -a"
 alias fmp="cd ~/FMP"
+alias havnegade="cd ~/Havnegade"
+alias datavask="cd ~/Datavask"
 alias dot="cd ~/dotfiles"
 
 alias tree='tree -I ".git|node_modules"'
