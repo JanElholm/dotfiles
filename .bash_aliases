@@ -15,7 +15,7 @@ alias havnegade="cd ~/Havnegade"
 alias datavask="cd ~/Datavask"
 alias dot="cd ~/dotfiles"
 alias zk='cd ~/zetelkasten'
-alias rwdot='cd ~/rwxrob/dot'
+alias rwxrob='cd ~/rwxrob/dot'
 alias mischa='cd ~/mischa/dotfiles'
 
 alias tree='tree -I ".git|node_modules"'
