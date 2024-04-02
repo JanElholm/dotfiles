@@ -9,6 +9,7 @@ alias publish='cd ~/htdocs; rsync --delete -avzhe ssh . trackmyleague.com@ssh.tr
 
 alias v=nvim
 alias t=tmux
+alias pomo="~/pomo/pomo.sh"
 
 alias ll="l -a"
 alias fmp="cd ~/FMP"
