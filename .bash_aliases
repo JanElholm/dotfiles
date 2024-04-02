@@ -8,6 +8,7 @@ alias download='cd ~/htdocs; rsync --delete -avzhe ssh trackmyleague.com@ssh.tra
 alias publish='cd ~/htdocs; rsync --delete -avzhe ssh . trackmyleague.com@ssh.trackmyleague.com:/www/'
 
 alias v=nvim
+alias t=tmux
 
 alias ll="l -a"
 alias fmp="cd ~/FMP"
