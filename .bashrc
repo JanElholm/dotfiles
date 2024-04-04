@@ -145,8 +145,8 @@ alias publish='cd $GHREPOS/htdocs; rsync --delete -avzhe ssh . trackmyleague.com
 # Repos
 
 alias fmp='cd $GHREPOS/FMP'
-alias havnegade='cd $GHREPOS/Havnegade'
-alias datavask='cd $GHREPOS/Datavask'
+alias hg='cd $GHREPOS/Havnegade'
+alias dv='cd $GHREPOS/Datavask'
 alias dot='cd $GHREPOS/dotfiles'
 alias zk='cd $GHREPOS/zetelkasten'
 alias repos='cd $REPOS'
