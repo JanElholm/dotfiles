@@ -1,42 +1,37 @@
-# dotfiles
+# Dotfiles
 
-.bash_profile bliver afviklet først
+My configuration files for bash, vim, tmux and so forth.
 
-## Setup new mac
+For a full walkthrough of these config files + more, check out [my Skool community.](https://mischavandenburg.com/skool)
 
-• Opdater til seneste version af macOS
-• Bluetooth settings par med wireless tastatur og mus
-• Installer firmaportalen
-• Installer Microsoft 365 Apps for macOS fra firmaportalen
-• Afprøv Outlook, teams, OneDrive, osv
-• Tilføj egen mailkonto til Outlook
-• Install iTerm2
-• Install homebrew from brew.sh
-• Switch from zsh to bash
-• Never bash: brew install bash
-• Sudo vim /etc/shells
-• Add line: /opt/homebrew/bin/bash
-• Chsh -s /opt/homebrew/bin/bash
-• Restart MacOS
-• Never git
-• Brew install git
-• 1Password
-• Rectangle
-• Git credential manager via homebrew
-• VS Code via homebrew
-• Bash dotfiles
-• Brew install icdiff
-• Background music
-• VSCode
+https://mischavandenburg.com/skool
 
-## List of packages to install with Homebrew
+# Setup Notes
 
-brew list
+The intention is to be able to run  a setup script after cloning the repo on a Mac or Ubuntu (WSL) system and be up and running very quickly.
 
-==> Formulae
+## Ubuntu
 
-bash gettext icdiff openssl@3 python@3.12 sqlite tree ca-certificates git mpdecimal pcre2 readline stow xz
+```bash
+DOTFILES_DIR=$HOME/Repos/github.com/mischavandenburg
+mkdir -p $DOTFILES_DIR
+cd $DOTFILES_DIR
+git clone https://github.com/mischavandenburg/dotfiles.git
+cd dotfiles
+```
 
-==> Casks
+## Windows and WSL setup
 
-1password git-credential-manager powershell steam discord google-chrome rectangle visual-studio-code
+* Install WSL in powershell 
+
+```
+The above command only works if WSL is not installed at all, if you run wsl --install and see the WSL help text, please try running wsl --list --online to see a list of available distros and run wsl --install -d <DistroName> to install a distro. To uninstall WSL, see Uninstall legacy version of WSL or unregister or uninstall a Linux distribution.
+```
+
+* Use [chocolatey](https://chocolatey.org/install) to install Windows Terminal Preview using `choco install microsoft-windows-terminal --pre`
+* Get gruvbox-material color scheme for Windows Terminal. 
+* Open the settings.json in windows preview by opening a new tab and click on Settings while holding shift
+* Paste in the colorschemes and asssign it to the Ubuntu profile in Windows Terminal
+
+There is an issue with npm on wsl ubuntu 22. Use this to install npm: https://stackoverflow.com/questions/73673804/npm-show-npm-elf-not-found-error-in-wsl
+
