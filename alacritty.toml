@@ -1,13 +1,13 @@
 # themes from https://github.com/alacritty/alacritty-theme
 
 # import = ["/Users/mischa/.config/alacritty/themes/themes/gruvbox_dark.toml"]
-import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+import = ["~/.config/alacritty/themes/themes/gruvbox_material.toml"]
 
 [font]
-size = 25
+size = 20
 
 [font.normal]
-family = "FireCode Nerd Font"
+family = "FiraCode Nerd Font Mono"
 
 [window]
 decorations = "none"
