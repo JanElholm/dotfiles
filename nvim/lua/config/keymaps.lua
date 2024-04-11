@@ -44,6 +44,10 @@ vim.keymap.set(
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- Markdown Preview
+vim.keymap.set("n", "mp", "<cmd>MarkdownPreview<CR>")
+vim.keymap.set("n", "mps", "<cmd>MarkdownPreviewStop<CR>")
+
 -- and these are for searching
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")

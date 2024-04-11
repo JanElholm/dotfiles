@@ -153,7 +153,7 @@ alias ls='ls --color=auto'
 alias ll="l -a"
 alias ll='ls -la'
 # alias la='exa -laghm@ --all --icons --git --color=always'
-alias la='ls -lathr'
+alias la='cd $GHREPOS/LazyAzure'
 
 # finds all files recursively and sorts by last modification, ignore hidden files
 alias last='find . -type f -not -path "*/\.*" -exec ls -lrt {} +'
