@@ -128,17 +128,12 @@ alias cd4="cd ../../../../"
 alias cd5="cd ../../../../../"
 alias scripts='cd $SCRIPTS'
 
-# htdocs
-alias download='cd $GHREPOS/htdocs; rsync --delete -avzhe ssh trackmyleague.com@ssh.trackmyleague.com:/www/ .'
-alias publish='cd $GHREPOS/htdocs; rsync --delete -avzhe ssh . trackmyleague.com@ssh.trackmyleague.com:/www/'
-
 # Repos
 
 alias fmp='cd $GHREPOS/FMP'
 alias hg='cd $GHREPOS/Havnegade'
 alias dv='cd $GHREPOS/Datavask'
 alias dot='cd $GHREPOS/dotfiles'
-alias zk='cd $GHREPOS/zetelkasten'
 alias repos='cd $REPOS'
 
 alias c="clear"
