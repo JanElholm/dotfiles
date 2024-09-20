@@ -3,6 +3,9 @@
 # import = ["/Users/mischa/.config/alacritty/themes/themes/gruvbox_dark.toml"]
 import = ["~/.config/alacritty/themes/themes/gruvbox_material.toml"]
 
+[env]
+TERM = "xterm-256color"
+
 [font]
 size = 20
 
