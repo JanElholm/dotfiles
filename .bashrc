@@ -87,24 +87,24 @@ export HISTCONTROL=ignorespace
 # This function is stolen from rwxrob
 
 clone() {
-	local repo="$1" user
-	local repo="${repo#https://github.com/}"
-	local repo="${repo#git@github.com:}"
-	if [[ $repo =~ / ]]; then
-		user="${repo%%/*}"
-	else
-		user="$GITUSER"
-		[[ -z "$user" ]] && user="$USER"
-	fi
-	local name="${repo##*/}"
-	local userd="$REPOS/github.com/$user"
-	local path="$userd/$name"
-	[[ -d "$path" ]] && cd "$path" && return
-	mkdir -p "$userd"
-	cd "$userd"
-	echo gh repo clone "$user/$name" -- --recurse-submodule
-	gh repo clone "$user/$name" -- --recurse-submodule
-	cd "$name"
+  local repo="$1" user
+  local repo="${repo#https://github.com/}"
+  local repo="${repo#git@github.com:}"
+  if [[ $repo =~ / ]]; then
+    user="${repo%%/*}"
+  else
+    user="$GITUSER"
+    [[ -z "$user" ]] && user="$USER"
+  fi
+  local name="${repo##*/}"
+  local userd="$REPOS/github.com/$user"
+  local path="$userd/$name"
+  [[ -d "$path" ]] && cd "$path" && return
+  mkdir -p "$userd"
+  cd "$userd"
+  echo gh repo clone "$user/$name" -- --recurse-submodule
+  gh repo clone "$user/$name" -- --recurse-submodule
+  cd "$name"
 } && export -f clone
 
 # ~~~~~~~~~~~~~~~ Prompt ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -140,9 +140,9 @@ alias c="clear"
 
 # ls
 if [[ $OSTYPE == 'darwin'* ]]; then
-	alias l="ls -cl -hp --color=always"
+  alias l="ls -cl -hp --color=always"
 else
-	alias l="ls -cl -hp --time-style=long-iso --group-directories-first --color=always"
+  alias l="ls -cl -hp --time-style=long-iso --group-directories-first --color=always"
 fi
 alias ls='ls --color=auto'
 alias ll="l -a"
@@ -179,11 +179,23 @@ alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}
 alias vf='v $(fp)'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	# echo "I'm on Mac!"
-	# brew bash completion
-	[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+  # echo "I'm on Mac!"
+  # brew bash completion
+  [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 else
-	#	source /usr/share/fzf/key-bindings.bash
-	#	source /usr/share/fzf/completion.bash
-	[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+  #	source /usr/share/fzf/key-bindings.bash
+  #	source /usr/share/fzf/completion.bash
+  [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 fi
+. /opt/homebrew/etc/profile.d/z.sh
+unalias z 2>/dev/null
+z() {
+  local dir=$(
+    _z 2>&1 |
+      fzf --height 40% --layout reverse --info inline \
+        --nth 2.. --tac --no-sort --query "$*" \
+        --bind 'enter:become:echo {2..}'
+  ) && cd "$dir"
+}
+source /opt/homebrew/Cellar/fzf/0.55.0/shell/key-bindings.bash
+source /opt/homebrew/Cellar/fzf/0.55.0/shell/completion.bash
