@@ -112,65 +112,35 @@ clone() {
 # Moved to starship 20-03-2024 for all my prompt needs.
 
 eval "$(starship init bash)"
+eval "$(zoxide init bash)"
 
 # ~~~~~~~~~~~~~~~ Aliases ~~~~~~~~~~~~~~~~~~~~~~~~
-
+alias t='sesh connect "$(sesh list | fzf)"'
 alias v=nvim
 # alias vim=nvim
 alias tree='tree -I ".git|node_modules"'
 
-# cd
-alias ..="cd .."
-alias cd1="cd .."
-alias cd2="cd ../../"
-alias cd3="cd ../../../"
-alias cd4="cd ../../../../"
-alias cd5="cd ../../../../../"
-alias scripts='cd $SCRIPTS'
-
-# Repos
-
-alias fmp='cd $GHREPOS/FMP'
-alias hg='cd $GHREPOS/Havnegade'
-alias dv='cd $GHREPOS/Datavask'
-alias dot='cd $GHREPOS/dotfiles'
-alias repos='cd $REPOS'
-
 alias c="clear"
 
 # ls
-if [[ $OSTYPE == 'darwin'* ]]; then
-  alias l="ls -cl -hp --color=always"
-else
-  alias l="ls -cl -hp --time-style=long-iso --group-directories-first --color=always"
-fi
-alias ls='ls --color=auto'
-alias ll="l -a"
-alias ll='ls -la'
-# alias la='exa -laghm@ --all --icons --git --color=always'
-alias la='cd $GHREPOS/LazyAzure'
+alias l='eza -laghm --group-directories-first --all --icons --git --color=always'
 
 # finds all files recursively and sorts by last modification, ignore hidden files
 alias last='find . -type f -not -path "*/\.*" -exec ls -lrt {} +'
 
-alias t='tmux'
 alias e='exit'
 
 # git
-alias gp='git pull'
-alias gs='git status'
 alias lg='lazygit'
 
 # ricing
-alias et='v ~/.config/awesome/themes/powerarrow/theme-personal.lua'
-alias ett='v ~/.config/awesome/themes/powerarrow-dark/theme-personal.lua'
 alias er='v ~/.config/awesome/rc.lua'
 alias eb='v ~/.bashrc'
 alias ev='cd ~/.config/nvim/ && v init.lua'
 alias sbr='source ~/.bashrc'
 
 # fun
-alias fishies=asciiquarium
+alias fisk=asciiquarium
 
 # fzf aliases
 # use fp to do a fzf search and preview the files
@@ -187,15 +157,28 @@ else
   #	source /usr/share/fzf/completion.bash
   [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 fi
-. /opt/homebrew/etc/profile.d/z.sh
-unalias z 2>/dev/null
-z() {
-  local dir=$(
-    _z 2>&1 |
-      fzf --height 40% --layout reverse --info inline \
-        --nth 2.. --tac --no-sort --query "$*" \
-        --bind 'enter:become:echo {2..}'
-  ) && cd "$dir"
-}
 source /opt/homebrew/Cellar/fzf/0.55.0/shell/key-bindings.bash
 source /opt/homebrew/Cellar/fzf/0.55.0/shell/completion.bash
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+. "$HOME/.cargo/env"
+
+# ripgrep->fzf->vim [QUERY]
+rfv() (
+  RELOAD='reload:rg --column --color=always --smart-case {q} || :'
+  OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+            vim {1} +{2}     # No selection. Open the current line in Vim.
+          else
+            vim +cw -q {+f}  # Build quickfix list for the selected items.
+          fi'
+  fzf --disabled --ansi --multi \
+    --bind "start:$RELOAD" --bind "change:$RELOAD" \
+    --bind "enter:become:$OPENER" \
+    --bind "ctrl-o:execute:$OPENER" \
+    --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+    --delimiter : \
+    --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+    --preview-window '~4,+{2}+4/3,<80(up)' \
+    --query "$*"
+)

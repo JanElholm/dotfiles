@@ -18,3 +18,8 @@ decorations = "none"
 [window.padding]
 x = 7
 y = 0
+
+[keyboard]
+bindings = [
+  { key = "K", mods = "Command", action = "CreateNewWindow" },
+]
