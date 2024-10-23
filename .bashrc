@@ -16,7 +16,8 @@ export VISUAL=nvim
 export EDITOR=nvim
 
 # config
-export BROWSER="firefox"
+alias edge="/Applications/Microsoft\ Edge.app/Contents/MacOS/Microsoft\ Edge"
+export BROWSER="/Applications/Microsoft\ Edge.app/Contents/MacOS/Microsoft\ Edge"
 
 # directories
 export REPOS="$HOME/Repos"
