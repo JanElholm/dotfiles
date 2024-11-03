@@ -122,7 +122,7 @@ alias v=nvim
 alias tree='tree -I ".git|node_modules"'
 
 alias c="clear"
-
+alias nb="newsboat -r"
 # ls
 alias l='eza -laghm --group-directories-first --all --icons --git --color=always'
 
