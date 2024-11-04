@@ -18,3 +18,10 @@ function profile {
 function code {
   Start-Process -FilePath "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" -ArgumentList "."
 }
+
+function dv {
+  Set-Location "/Users/janelholm/Repos/github.com/JanElholm/Datavask"
+  deactivate
+  ./.venv/bin/Activate.ps1
+  python ./genialt.py
+}
