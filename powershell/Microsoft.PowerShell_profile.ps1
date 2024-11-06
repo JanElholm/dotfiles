@@ -1,4 +1,4 @@
-Invoke-Expression (&starship init powershell)
+Invoke-Expression (& '/opt/homebrew/bin/starship' init powershell)
 Import-Module Terminal-Icons
 Import-Module devtoolbox
 
@@ -34,4 +34,4 @@ function hf {
 }
 
 Set-Alias -Name l -Value dir
-Set-Alias -Name lg -Value lazygit
+Set-Alias -Name lg -Value '/opt/homebrew/bin/lazygit'
