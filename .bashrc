@@ -158,8 +158,6 @@ else
   #	source /usr/share/fzf/completion.bash
   [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 fi
-source /opt/homebrew/Cellar/fzf/0.55.0/shell/key-bindings.bash
-source /opt/homebrew/Cellar/fzf/0.55.0/shell/completion.bash
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -183,3 +181,12 @@ rfv() (
     --preview-window '~4,+{2}+4/3,<80(up)' \
     --query "$*"
 )
+
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
