@@ -7,6 +7,7 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineOption -EditMode Windows
 
 $ENV:PATH += ':/opt/homebrew/bin'
+$ENV:PATH += ':/Users/janelholm/go/bin'
 
 function update {
   brew update
