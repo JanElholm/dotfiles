@@ -13,10 +13,6 @@ function update {
   brew upgrade powershell/tap/powershell
 }
 
-function profile {
-  code $profile
-}
-
 function code {
   Start-Process -FilePath "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" -ArgumentList "."
 }
@@ -59,6 +55,7 @@ function cis {
   python ./kal.py
 }
 
-Set-Alias -Name l -Value dir
 Set-Alias -Name lg -Value '/opt/homebrew/bin/lazygit'
+Set-Alias -Name vi -Value nvim
+Set-Alias -Name l -Value dir
 Set-Alias -Name az -Value '/opt/homebrew/bin/az'
