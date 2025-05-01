@@ -31,6 +31,7 @@ require("lazy").setup({
 	require("plugins.copilot"),
 	require("plugins.powershell"),
 	require("plugins.dap-virtual-text"),
+	require("plugins.diffview"),
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
