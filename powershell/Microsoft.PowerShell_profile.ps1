@@ -97,3 +97,5 @@ Set-Alias -Name lg -Value '/opt/homebrew/bin/lazygit'
 Set-Alias -Name vi -Value nvim
 Set-Alias -Name l -Value dir
 Set-Alias -Name az -Value '/opt/homebrew/bin/az'
+
+Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
