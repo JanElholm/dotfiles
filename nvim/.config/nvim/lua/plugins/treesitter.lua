@@ -9,7 +9,6 @@ return { -- Highlight, edit, and navigate code
 			"python",
 			"javascript",
 			"powershell",
-			"bicep",
 			"regex",
 			"toml",
 			"json",
@@ -22,7 +21,6 @@ return { -- Highlight, edit, and navigate code
 			"tsx",
 			"css",
 			"html",
-			"powershell",
 			"bicep",
 		},
 		-- Autoinstall languages that are not installed

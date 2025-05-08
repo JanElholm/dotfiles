@@ -93,6 +93,22 @@ function cn
   Start-TokenRefreshJob -TenantId 37732f27-626b-4ead-bb86-76f576b129b1
 }
 
+function cna
+{
+  $tid = @(
+    'FES Dev (37732f27-626b-4ead-bb86-76f576b129b1)',
+    'Fmdk (c905c127-525f-47a9-83f1-bec014f6d613)'
+  ) | Invoke-Fzf
+  $tid = $tid -replace '.*\((.*)\)', '$1'
+  Disconnect-AzAccount
+  Disconnect-AzAccount
+  Disconnect-AzAccount
+  Connect-AzAccount -Tenant $tid
+  Get-Job | Remove-Job -Force
+  Start-TokenRefreshJob -TenantId $tid
+  Write-Host "Switched to tenant ID: $tid"
+}
+
 Set-Alias -Name lg -Value '/opt/homebrew/bin/lazygit'
 Set-Alias -Name vi -Value nvim
 Set-Alias -Name l -Value dir
